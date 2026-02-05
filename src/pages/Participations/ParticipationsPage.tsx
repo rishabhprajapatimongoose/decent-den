@@ -101,7 +101,7 @@ const ParticipationsPage: React.FC = () => {
       </main>
 
       {/* Right Hero Image Column */}
-      <aside className="w-full lg:w-1/2 relative h-[500px] lg:h-auto">
+      <aside className="w-full lg:w-1/2 relative h-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-[#04040E] via-transparent to-transparent z-10 hidden lg:block" />
         <img
           src="/participations-hero.jpg" // Replace with your asset

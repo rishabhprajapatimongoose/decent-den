@@ -11,7 +11,7 @@ const SectionHeader = ({
 }: SectionHeaderProps) => {
   return (
     <div
-      className={` text-[64px] font-irish text-wrap space-x-6 wrap-break-words items-center uppercase  ${
+      className={` text-[64px] font-irish text-wrap space-x-6 mx-auto wrap-break-words items-center uppercase  ${
         isDark ? "text-[#04040E]" : "text-[#ffffff]"
       }`}
     >
