@@ -11,12 +11,11 @@ import ParticipationsPage from "./pages/Participations/ParticipationsPage";
 
 const App = () => {
   useEffect(() => {
-    // A small delay ensures the browser has rendered all components
     const timeout = setTimeout(() => {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth", // Optional: makes it look premium
+        behavior: "smooth",
       });
     }, 10);
 
