@@ -120,10 +120,7 @@ const DecentDenLanding = () => {
   const navOpacity = useTransform(scroll, [0.2, 0.6], [0, 1]);
 
   return (
-    <div
-      ref={containerRef}
-      className="isolation relative w-full h-[240vh] bg-pink-300"
-    >
+    <div ref={containerRef} className="relative w-full h-[240vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* BG */}
         <div className="absolute inset-0 w-full selection:none">
@@ -180,7 +177,7 @@ const DecentDenLanding = () => {
           className="absolute bottom-28 left-1/2 -translate-x-1/2 z-30 text-center w-fit"
         >
           <p className="text-center text-white text-xl md:text-2xl font-irish">
-            They Call It Decent.. By Name Only!
+            They Call It Decent. By Name Only!
           </p>
 
           <motion.p

@@ -1,6 +1,7 @@
 import AboutPage from "./pages/About/AboutPage";
 import BornFirePage from "./pages/BornFirePage";
 import DecentDenLanding from "./pages/DecentDenLoading";
+import TheDenSpacePage from "./pages/TheDenSpacePage";
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <DecentDenLanding />
       <AboutPage />
       <BornFirePage />
+      <TheDenSpacePage />
     </div>
   );
 };
