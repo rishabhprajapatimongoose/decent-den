@@ -1,5 +1,6 @@
 import React from "react";
 import SectionHeader from "../../components/common/SectionHeader";
+import OrganizingHandCard from "./components/OrganizingHandCard";
 const OrganizingHands: React.FC = () => {
   const uniqueImages = ["/personOne.png", "/personTwo.png", "/personThree.png"];
 
@@ -28,34 +29,27 @@ const OrganizingHands: React.FC = () => {
       </div>
 
       {/* Accordion Container */}
-      <div className="flex w-full max-w-[1400px] h-[600px] px-4 gap-1 group">
+      <div
+        className="flex w-full max-w-[1400px] h-[600px] px-4 border-r [border-image-source:linear-gradient(180deg,#000001_0%,#59A6F3_32.21%,#59A6F3_68.75%,#010001_100%)]
+[border-image-slice:1]"
+      >
+        {" "}
+        {/* Removed 'group' here */}
         {images.map((src, index) => (
           <div
             key={index}
             className={`
-              relative h-full overflow-hidden transition-all duration-500 ease-in-out cursor-pointer
-              /* Base width for all items */
-              flex-[1] 
-              /* Expand on hover */
-              hover:flex-[4]
-              /* Border styling to match reference */
-              border-x border-blue-500/20
-            `}
+        group /* Moved 'group' here so it only triggers for this specific card */
+        relative h-full overflow-hidden transition-all duration-500 ease-in-out cursor-pointer
+        flex-1 hover:flex-4 
+      `}
           >
-            {/* Image Wrapper to maintain aspect ratio during flex expansion */}
-            <div className="absolute inset-0 w-full h-full">
-              <img
-                src={src}
-                alt={`Organizing Hand ${index + 1}`}
-                className="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-500"
-              />
-
-              {/* Subtle Blue Glow Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-900/20 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Left Side Blue Line (as seen in Figma) */}
-              <div className="absolute left-0 top-0 w-[1px] h-full bg-blue-400/40" />
-            </div>
+            <OrganizingHandCard
+              src={src}
+              index={index}
+              name="Name"
+              description="Description"
+            />
           </div>
         ))}
       </div>
