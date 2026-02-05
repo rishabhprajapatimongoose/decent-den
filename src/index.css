@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Irish+Grover&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --shadow-card-glow: 0px 0px 10px 2px rgba(190, 195, 235, 0.25);
+}
 @layer utilities {
   .font-irish {
     font-family: "Irish Grover", system-ui;
@@ -17,5 +20,10 @@
     font-family: "Inika", serif;
     font-weight: 700;
     font-style: normal;
+  }
+
+  /* box shadow glow */
+  .shadow-card-glow {
+    box-shadow: var(--shadow-card-glow);
   }
 }

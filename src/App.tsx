@@ -1,11 +1,11 @@
 import AboutPage from "./pages/About/AboutPage";
 import BornFirePage from "./pages/BornFirePage";
 import DecentDenLanding from "./pages/DecentDenLoading";
-import TheDenSpacePage from "./pages/TheDenSpacePage";
+import TheDenSpacePage from "./pages/DenSpace/TheDenSpacePage";
 
 const App = () => {
   return (
-    <div>
+    <div className="font-inika">
       <DecentDenLanding />
       <AboutPage />
       <BornFirePage />
