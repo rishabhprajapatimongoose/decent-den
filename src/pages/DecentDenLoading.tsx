@@ -215,7 +215,7 @@ const DecentDenLanding = () => {
             />
           </svg>
 
-          <span className="text-[10px] tracking-widest text-white/50 uppercase">
+          <span className="text-[10px] text-white/50 uppercase">
             Scroll Down
           </span>
         </motion.div>

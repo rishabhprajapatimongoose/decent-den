@@ -29,7 +29,6 @@ const SideNav = () => (
           mix-blend-difference
           transition-all
           duration-300
-          hover:tracking-widest
         "
       >
         {item}

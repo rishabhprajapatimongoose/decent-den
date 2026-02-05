@@ -15,11 +15,11 @@ const PageHeader = () => {
 
 const Footer = () => {
   return (
-    <section className="mt-25 text-center w-full flex flex-col items-center px-4 pb-12 ">
+    <section className="mt-25 text-center w-full flex flex-col items-center px-4 pb-12  ">
       <div className="flex items-center justify-center gap-6 w-full ">
         <div className="h-1 flex-1 bg-linear-to-r from-transparent to-[#506191]" />
 
-        <h2 className="text-[64px] font-irish text-white uppercase tracking-wider">
+        <h2 className="text-[64px] font-irish text-white uppercase ">
           Three Gangs
         </h2>
 
