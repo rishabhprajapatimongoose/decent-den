@@ -4,6 +4,7 @@ import CommunityPartners from "./pages/CommunityPartnersPage";
 import ParticipationInquiryPage from "./pages/Contact/ParticipationInquiryPage";
 import DecentDenLanding from "./pages/DecentDenLoading";
 import TheDenSpacePage from "./pages/DenSpace/TheDenSpacePage";
+import OrganizingHands from "./pages/Organizinghands/OrganiingHands";
 import ParticipationsPage from "./pages/Participations/ParticipationsPage";
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <AboutPage />
       <BornFirePage />
       <TheDenSpacePage />
+      <OrganizingHands />
       <CommunityPartners />
       <ParticipationsPage />
       <ParticipationInquiryPage />

@@ -34,8 +34,13 @@ const Footer = () => {
   );
 };
 
+type Gang = {
+  name: string;
+  image: string;
+};
+
 const Main = () => {
-  const gangs = [
+  const gangs: Gang[] = [
     { name: "Gang Hammer", image: "/CardGangHammer.jpg" },
     { name: "Gang Knife", image: "/CardGangKnife.jpg" },
     { name: "Gang Pistol", image: "CardGangPistol.jpg" },
@@ -69,6 +74,8 @@ const TheDenSpacePage = () => {
 
       {/* Main Content */}
       <Main />
+
+      {/* Footers */}
       <Footer />
     </div>
   );
