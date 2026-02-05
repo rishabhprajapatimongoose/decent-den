@@ -1,6 +1,8 @@
 import React from "react";
 import SectionHeader from "../../components/common/SectionHeader";
-import PlatformCard from "./components/PlatformCard";
+import PlatformCard, {
+  type PlatformCardProps,
+} from "./components/PlatformCard";
 
 const ParticipationsPara = () => {
   return (
@@ -23,17 +25,17 @@ const ParticipationsPara = () => {
 const ParticipationsPage: React.FC = () => {
   const platforms: PlatformCardProps[] = [
     {
-      icon: "/youtubeLogo.png", // Replace with your asset
+      icon: "/youtubeLogo.png",
       title: "YouTube",
       description: "Full episodes & extended cuts",
     },
     {
-      icon: "/twitterLogo.png", // Replace with your asset
+      icon: "/twitterLogo.png",
       title: "X (Twitter)",
       description: "Live moments & viral clips",
     },
     {
-      icon: "/instagramLogo.png", // Replace with your asset
+      icon: "/instagramLogo.png",
       title: "Shorts & Reels",
       description: "Bite-sized highlights",
     },

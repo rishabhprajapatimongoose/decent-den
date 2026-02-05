@@ -22,7 +22,7 @@ const App = () => {
     return () => clearTimeout(timeout);
   }, []);
   return (
-    <div className="font-inika">
+    <div className="font-inika text-white">
       <DecentDenLanding />
       <AboutPage />
       <BornFirePage />

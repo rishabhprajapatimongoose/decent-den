@@ -1,4 +1,4 @@
-interface PlatformCardProps {
+export interface PlatformCardProps {
   icon: string;
   title: string;
   description: string;
