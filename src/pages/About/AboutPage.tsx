@@ -61,20 +61,16 @@ const AboutPage = () => {
             Brings together{" "}
             <Highlight className={base}>blockchain content creators</Highlight>{" "}
             in a high-energy,{" "}
-            <Highlight className="text-slate-900">reality-show</Highlight>{" "}
-            format. It gives them a space to unite, collaborate, empower each
-            other, and strengthen the{" "}
-            <Highlight className="text-slate-900">
-              Blockchain & Web3 ecosystem.
-            </Highlight>{" "}
+            <Highlight className={base}>reality-show</Highlight> format. It
+            gives them a space to unite, collaborate, empower each other, and
+            strengthen the{" "}
+            <Highlight className={base}>Blockchain & Web3 ecosystem.</Highlight>{" "}
             Through highly engaging content, it helps take this technology to{" "}
-            <Highlight className="text-slate-900">
+            <Highlight className={base}>
               people who still don't know about it
             </Highlight>{" "}
             and trust us,{" "}
-            <Highlight className="text-slate-900">
-              they're in the millions.
-            </Highlight>{" "}
+            <Highlight className={base}>they're in the millions.</Highlight>{" "}
             Brings together in a high-energy, format. It gives them a space to
             unite, collaborate, empower each other, and strengthen the{" "}
           </p>
@@ -111,11 +107,7 @@ const AboutPage = () => {
 
         {/* Abstract Bitcoin Watermark Background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
-          <img
-            src="/aboutBackground.png"
-            className="w-[800px]"
-            alt="Watermark"
-          />
+          <img src="/aboutBackground.png" className="w-full" alt="Watermark" />
         </div>
       </div>
     </section>

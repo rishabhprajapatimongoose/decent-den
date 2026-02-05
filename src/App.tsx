@@ -1,4 +1,5 @@
 import AboutPage from "./pages/About/AboutPage";
+import BornFirePage from "./pages/BornFirePage";
 import DecentDenLanding from "./pages/DecentDenLoading";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div>
       <DecentDenLanding />
       <AboutPage />
+      <BornFirePage />
     </div>
   );
 };
