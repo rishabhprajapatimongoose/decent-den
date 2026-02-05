@@ -1,6 +1,9 @@
 const Footer = () => {
   return (
-    <footer className="w-full bg-black text-white py-12 px-8 md:px-24">
+    <footer
+      className="w-full bg-black text-white py-12 px-8 border-t-2 [border-image-source:linear-gradient(90deg,#000001_0%,#FFFFFF_50%,#000001_100%)] 
+  [border-image-slice:1]"
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Logo */}
         <div className="h-27.5">
