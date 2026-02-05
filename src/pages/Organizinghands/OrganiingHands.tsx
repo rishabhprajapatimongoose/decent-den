@@ -1,13 +1,27 @@
 import React from "react";
 import SectionHeader from "../../components/common/SectionHeader";
 const OrganizingHands: React.FC = () => {
-  const uniqueImages = ["/hand-1.jpg", "/hand-2.jpg", "/hand-3.jpg"];
+  const uniqueImages = ["/personOne.png", "/personTwo.png", "/personThree.png"];
 
   const images = Array.from({ length: 10 }, (_, i) => uniqueImages[i % 3]);
 
   return (
-    <section className="w-full min-h-screen bg-[#04040E] pt-15 pb-21 flex flex-col items-center overflow-hidden">
+    <section className="relative w-full min-h-screen  pt-15 pb-21 flex flex-col items-center overflow-hidden">
       {/* Header Section */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* The Image Layer */}
+        <img
+          src="/organizingHandsBg.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+          aria-hidden="true"
+        />
+
+        {/* The Overlay Layer 
+      Using #000000E0 (approx 88% opacity) to darken the image 
+  */}
+        <div className="absolute inset-0 bg-black/85 mix-blend-multiply" />
+      </div>
       <div className="mb-17 flex gap-6">
         <img src="/organizingHandsLogo.png " className="h-30 2-30  " />
         <SectionHeader prefix="Organizing" highlight="Hands" />

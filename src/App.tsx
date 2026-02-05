@@ -1,3 +1,4 @@
+import Footer from "./components/common/Footer";
 import AboutPage from "./pages/About/AboutPage";
 import BornFirePage from "./pages/BornFirePage";
 import CommunityPartners from "./pages/CommunityPartnersPage";
@@ -18,6 +19,7 @@ const App = () => {
       <CommunityPartners />
       <ParticipationsPage />
       <ParticipationInquiryPage />
+      <Footer />
     </div>
   );
 };
