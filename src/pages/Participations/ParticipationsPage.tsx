@@ -79,14 +79,14 @@ const ParticipationsPage: React.FC = () => {
 
       {/* Right Image Column */}
       <aside className="w-1/3 relative h-auto">
-        <div className="absolute w-2/3 inset-0 z-10 block" />
+        <div className="absolute inset-0 z-10 block" />
         <img
-          src="/ParticipationImage.png" // Replace with your asset
+          src="/ParticipationImage.png"
           alt="Participations Hero"
           className="w-auto h-full object-cover"
         />
 
-        {/* Call to Action Button */}
+        {/* butn */}
         <div className="absolute bottom-12 left-0 w-full px-8 md:px-16 z-20">
           <button className="w-full bg-white text-black py-4 rounded-full font-irish text-xl uppercase st hover:bg-gray-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
             Click Here To Participate

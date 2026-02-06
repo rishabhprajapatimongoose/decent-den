@@ -18,9 +18,7 @@ const OrganizingHands: React.FC = () => {
           aria-hidden="true"
         />
 
-        {/* The Overlay Layer 
-      Using #000000E0 (approx 88% opacity) to darken the image 
-  */}
+        {/* bg overlay */}
         <div className="absolute inset-0 bg-black/85 mix-blend-multiply" />
       </div>
       <div className="mb-17 flex gap-6">
