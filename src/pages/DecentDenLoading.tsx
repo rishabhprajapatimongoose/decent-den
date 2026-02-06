@@ -5,7 +5,6 @@ import {
   useTransform,
   useSpring,
   useAnimationControls,
-  useMotionValue,
 } from "framer-motion";
 
 import SideNav from "../components/common/SideNav";
@@ -13,7 +12,6 @@ import SideNav from "../components/common/SideNav";
 /* ---------------- Config ---------------- */
 
 const INTRO_DELAY = 1000;
-
 const SCROLL_RANGE_1 = 0.4;
 
 const KING_RANGE: [number, number] = [0.2, 0.6];
@@ -38,30 +36,25 @@ const DecentDenLanding = () => {
   /* ---------------- Controls ---------------- */
 
   const logoCtrl = useAnimationControls();
-  const weelCtrl = useAnimationControls();
+  const wheelCtrl = useAnimationControls();
   const textCtrl = useAnimationControls();
   const btnCtrl = useAnimationControls();
 
-  /* ---------------- Scroll ---------------- */
+  /* ---------------- Scroll (Delayed Init) ---------------- */
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: phase === "scroll" ? containerRef : undefined,
     offset: ["start start", "end end"],
   });
 
-  const rawScroll = useSpring(scrollYProgress, {
+  const smoothScroll = useSpring(scrollYProgress ?? 0, {
     stiffness: 170,
     damping: 24,
     mass: 0.9,
   });
 
-  const scrollOffset = useMotionValue(0);
-
-  const scroll = useTransform(rawScroll, (v) =>
-    Math.max(0, v - scrollOffset.get()),
-  );
-
   /* ---------------- Intro Timeline ---------------- */
+
   const runIntro = useCallback(async () => {
     await wait(INTRO_DELAY);
 
@@ -76,7 +69,7 @@ const DecentDenLanding = () => {
         transition: { duration: 0.8, ease: "easeOut" },
       }),
 
-      weelCtrl.start({
+      wheelCtrl.start({
         y: "0%",
         opacity: 1,
         transition: { duration: 0.9, ease: "easeOut" },
@@ -97,83 +90,71 @@ const DecentDenLanding = () => {
 
     if (!mounted.current) return;
 
-    scrollOffset.set(rawScroll.get());
-
-    document.body.style.overflow = "auto";
-
     setPhase("scroll");
-  }, [logoCtrl, weelCtrl, textCtrl, btnCtrl, rawScroll, scrollOffset]);
+  }, [logoCtrl, wheelCtrl, textCtrl, btnCtrl]);
 
   /* ---------------- Lifecycle ---------------- */
 
   useEffect(() => {
     mounted.current = true;
 
-    const originalOverflow = document.body.style.overflow;
-
     window.scrollTo(0, 0);
-    document.body.style.overflow = "hidden";
 
-    queueMicrotask(() => {
-      runIntro().catch((e) => console.error("Intro failed:", e));
+    // Defer to next tick to avoid sync setState in effect
+    const id = requestAnimationFrame(() => {
+      runIntro().catch(console.error);
     });
 
     return () => {
       mounted.current = false;
-      document.body.style.overflow = originalOverflow || "auto";
+      cancelAnimationFrame(id);
     };
   }, [runIntro]);
 
-  /* ---------------- Resize Sync ---------------- */
-
-  useEffect(() => {
-    const syncScroll = () => {
-      scrollOffset.set(rawScroll.get());
-    };
-
-    window.addEventListener("resize", syncScroll);
-
-    return () => window.removeEventListener("resize", syncScroll);
-  }, [rawScroll]);
-
-  /* ---------------- Timeline ---------------- */
+  /* ---------------- Transforms ---------------- */
 
   // Logo
-  const logoX = useTransform(scroll, [0, SCROLL_RANGE_1], ["0vw", "-35vw"]);
-
-  const logoScale = useTransform(scroll, [0, SCROLL_RANGE_1], [0.8, 0.6]);
+  const logoX = useTransform(
+    smoothScroll,
+    [0, SCROLL_RANGE_1],
+    ["0vw", "-35vw"],
+  );
+  const logoScale = useTransform(smoothScroll, [0, SCROLL_RANGE_1], [0.8, 0.6]);
 
   // Wheel
-  const weelScale = useTransform(scroll, [0, SCROLL_RANGE_1], [1, 0.7]);
-
-  const weelY = useTransform(scroll, [0, SCROLL_RANGE_1], ["0%", "10%"]);
+  const wheelScale = useTransform(smoothScroll, [0, SCROLL_RANGE_1], [1, 0.7]);
+  const wheelY = useTransform(smoothScroll, [0, SCROLL_RANGE_1], ["0%", "10%"]);
 
   // Text
-  const textX = useTransform(scroll, [0.1, SCROLL_RANGE_1], ["0vw", "-25vw"]);
-
-  const descOpacity = useTransform(scroll, [0.2, SCROLL_RANGE_1], [0, 1]);
+  const textX = useTransform(
+    smoothScroll,
+    [0.1, SCROLL_RANGE_1],
+    ["0vw", "-25vw"],
+  );
+  const descOpacity = useTransform(smoothScroll, [0.2, SCROLL_RANGE_1], [0, 1]);
 
   // Button
-  const btnX = useTransform(scroll, [0.1, SCROLL_RANGE_1], ["0vw", "40vw"]);
+  const btnX = useTransform(
+    smoothScroll,
+    [0.1, SCROLL_RANGE_1],
+    ["0vw", "40vw"],
+  );
 
   // King
-  const kingOpacity = useTransform(scroll, KING_RANGE, [0, 1]);
-
-  const kingScale = useTransform(scroll, KING_RANGE, [0.9, 1.1]);
-
-  const kingY = useTransform(scroll, KING_RANGE, ["12%", "-5%"]);
+  const kingOpacity = useTransform(smoothScroll, KING_RANGE, [0, 1]);
+  const kingScale = useTransform(smoothScroll, KING_RANGE, [0.9, 1.1]);
+  const kingY = useTransform(smoothScroll, KING_RANGE, ["12%", "-5%"]);
 
   // Nav
-  const navX = useTransform(scroll, NAV_RANGE, ["100%", "0%"]);
-
-  const navOpacity = useTransform(scroll, NAV_RANGE, [0, 1]);
+  const navX = useTransform(smoothScroll, NAV_RANGE, ["100%", "0%"]);
+  const navOpacity = useTransform(smoothScroll, NAV_RANGE, [0, 1]);
 
   /* ---------------- Render ---------------- */
 
   return (
     <div ref={containerRef} className="relative w-full h-[240vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* BG */}
+        {/* Background */}
         <div className="absolute inset-0 select-none">
           <img
             src="/heroBackground.png"
@@ -184,7 +165,7 @@ const DecentDenLanding = () => {
 
         {/* Loader */}
         {phase === "loading" && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
             <img src="/logoDecentDen.png" className="w-72" alt="logo" />
           </div>
         )}
@@ -216,9 +197,9 @@ const DecentDenLanding = () => {
         {/* Wheel */}
         <motion.div
           initial={{ y: "100%", opacity: 0 }}
-          animate={weelCtrl}
+          animate={wheelCtrl}
           style={
-            phase === "scroll" ? { scale: weelScale, y: weelY } : undefined
+            phase === "scroll" ? { scale: wheelScale, y: wheelY } : undefined
           }
           className="absolute bottom-0 z-20 w-full h-[65vh] flex justify-center origin-bottom"
         >
@@ -234,7 +215,7 @@ const DecentDenLanding = () => {
           initial={{ y: 80, opacity: 0 }}
           animate={textCtrl}
           style={phase === "scroll" ? { x: textX } : undefined}
-          className="absolute bottom-28 left-1/2 -translate-x-1/2 z-30 text-center w-fit"
+          className="absolute bottom-28 left-1/2 -translate-x-1/2 z-30 text-center"
         >
           <p className="text-white text-xl md:text-2xl font-irish">
             They Call It Decent. By Name Only!
@@ -264,7 +245,7 @@ const DecentDenLanding = () => {
         {/* Nav */}
         <motion.div
           style={{ x: navX, opacity: navOpacity }}
-          className="fixed right-10 top-1/2 -translate-y-1/2 z-50"
+          className="isolate fixed right-10 top-1/2 -translate-y-1/2 z-50"
         >
           <SideNav />
         </motion.div>

@@ -23,10 +23,7 @@ const SectionHeader = ({
       `}
     >
       {prefix && (
-        <span
-          style={{ color: prefixColor }}
-          className="mr-3 md:mr-6" /* Standard margin for spacing */
-        >
+        <span style={{ color: prefixColor }} className="mr-6">
           {prefix}
         </span>
       )}
