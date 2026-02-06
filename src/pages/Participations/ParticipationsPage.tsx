@@ -78,7 +78,7 @@ const ParticipationsPage: React.FC = () => {
       </main>
 
       {/* Right Image Column */}
-      <aside className="w-1/3 relative h-auto">
+      <aside className="w-1/3 relative h-auto border-4 border-[#506191]">
         <div className="absolute inset-0 z-10 block" />
         <img
           src="/ParticipationImage.png"
@@ -87,7 +87,7 @@ const ParticipationsPage: React.FC = () => {
         />
 
         {/* butn */}
-        <div className="absolute bottom-12 left-0 w-full px-8 md:px-16 z-20">
+        <div className="absolute bottom-14.5 left-0 w-full px-16 z-20">
           <button className="w-full bg-white text-black py-4 rounded-full font-irish text-xl uppercase st hover:bg-gray-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
             Click Here To Participate
           </button>

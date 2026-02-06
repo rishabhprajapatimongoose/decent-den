@@ -26,7 +26,7 @@ const OrganizingHands: React.FC = () => {
 
       {/* Accordion Container */}
       <div
-        className="flex w-full max-w-[1500px] h-[600px] px-4 border-r [border-image-source:linear-gradient(180deg,#000001_0%,#59A6F3_32.21%,#59A6F3_68.75%,#010001_100%)]
+        className="flex w-full max-w-[1500px] h-[600px]  border-r [border-image-source:linear-gradient(180deg,#000001_0%,#59A6F3_32.21%,#59A6F3_68.75%,#010001_100%)]
 [border-image-slice:1]"
       >
         {images.map((src, index) => (

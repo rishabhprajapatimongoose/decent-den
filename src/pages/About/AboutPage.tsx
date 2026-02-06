@@ -1,4 +1,5 @@
 import React from "react";
+import SectionHeader from "../../components/common/SectionHeader";
 
 const Highlight = ({
   children,
@@ -7,7 +8,9 @@ const Highlight = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <span className={`text-black font-inika-bold text-[32px] ${className}`}>
+  <span
+    className={`text-black font-inika-bold text-[32px] leading-[160%] ${className}`}
+  >
     {children}
   </span>
 );
@@ -19,7 +22,7 @@ const GridHeading = ({
   lightText: string;
   darkText: string;
 }) => (
-  <p className={`text-blue-600 font-irish text-[40px] leading-[105%]`}>
+  <p className={`text-[#88ABD3] font-irish text-[40px] leading-[105%]`}>
     {lightText} <span className={"text-slate-900 text-nowrap"}>{darkText}</span>
   </p>
 );
@@ -34,8 +37,6 @@ const DenListItem = ({ text }: { text: string }) => (
 // --- Main Page Component ---
 
 const AboutPage = () => {
-  const base = "text-black leading-[160%]";
-
   const challenges = [
     "Attacks and defense",
     "Team-based challenges",
@@ -46,39 +47,31 @@ const AboutPage = () => {
 
   return (
     <section className="isolation min-h-screen w-full bg-[url('/aboutBackground.png')] bg-top flex">
-      <div className="bg-white/90 w-full relative flex-1 text-slate-900 px-6 flex flex-col items-center justify-between">
+      <div className="bg-[#E9ECF4]/90 w-full relative flex-1 text-slate-900 px-6 flex flex-col items-center justify-between">
         <div className="mt-18 max-w-5xl w-full text-center">
-          {/* Main Title */}
-          <h2 className="text-[64px] font-irish">
-            WHAT IS{" "}
-            <span className="bg-slate-900 text-white p-2.5 rounded-[10px]">
-              DECENT DEN?
-            </span>
-          </h2>
-
+          <SectionHeader
+            prefix="What is"
+            highlight="Decent Den?"
+            prefixColor="#181C37"
+            highlightColor="#FFFFFF"
+          />
           {/* Main Body Text */}
           <p className="mt-15 text-2xl leading-[160%] text-slate-600 font-inika">
-            Brings together{" "}
-            <Highlight className={base}>blockchain content creators</Highlight>{" "}
-            in a high-energy,{" "}
-            <Highlight className={base}>reality-show</Highlight> format. It
+            Brings together <Highlight>blockchain content creators</Highlight>{" "}
+            in a high-energy, <Highlight>reality-show</Highlight> format. It
             gives them a space to unite, collaborate, empower each other, and
-            strengthen the{" "}
-            <Highlight className={base}>Blockchain & Web3 ecosystem.</Highlight>{" "}
+            strengthen the <Highlight>Blockchain & Web3 ecosystem.</Highlight>{" "}
             Through highly engaging content, it helps take this technology to{" "}
-            <Highlight className={base}>
-              people who still don't know about it
-            </Highlight>{" "}
-            and trust us,{" "}
-            <Highlight className={base}>they're in the millions.</Highlight>{" "}
-            Brings together in a high-energy, format. It gives them a space to
-            unite, collaborate, empower each other, and strengthen the{" "}
+            <Highlight>people who still don't know about it</Highlight> and
+            trust us, <Highlight>they're in the millions.</Highlight> Brings
+            together in a high-energy, format. It gives them a space to unite,
+            collaborate, empower each other, and strengthen the{" "}
           </p>
 
           {/* Bottom Grid */}
-          <div className="grid md:grid-cols-2 gap-12 mt-10 text-left py-10 w-full">
+          <div className="flex justify-between gap-12 mt-10 text-left py-10 w-full">
             {/* Why Engaging Section */}
-            <div className="space-y-3">
+            <div className="space-y-3 ">
               <GridHeading
                 lightText="did you say,"
                 darkText="WHY IS IT ENGAGING?"
@@ -91,7 +84,7 @@ const AboutPage = () => {
             </div>
 
             {/* You'll Face Section */}
-            <div className="items-end">
+            <div className="items-end shrink-0">
               <GridHeading
                 lightText="inside the den,"
                 darkText="YOU'LL FACE:"
@@ -103,11 +96,6 @@ const AboutPage = () => {
               </ul>
             </div>
           </div>
-        </div>
-
-        {/* Abstract Bitcoin Watermark Background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
-          <img src="/aboutBackground.png" className="w-full" alt="Watermark" />
         </div>
       </div>
     </section>

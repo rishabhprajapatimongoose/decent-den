@@ -33,7 +33,7 @@ const PartnershipInquiryForm = () => {
             SponserShip Interest *
           </label>
           <select
-            className=" mt-3 w-full bg-[#15427E24] text-[#ffffff] text-base rounded-md flex gap-2.5 px-5 py-3.5
+            className=" mt-3 w-full bg-[#15427E24] text-white text-base rounded-md flex gap-2.5 px-5 py-3.5
           border-[1.4px] border-[#15427E] outline-0 focus:border-blue-300 "
           >
             <option value={"Partnership"}> Parnership</option>

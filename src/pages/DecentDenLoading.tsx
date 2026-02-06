@@ -62,7 +62,6 @@ const DecentDenLanding = () => {
   );
 
   /* ---------------- Intro Timeline ---------------- */
-
   const runIntro = useCallback(async () => {
     await wait(INTRO_DELAY);
 
@@ -103,7 +102,7 @@ const DecentDenLanding = () => {
     document.body.style.overflow = "auto";
 
     setPhase("scroll");
-  }, [logoCtrl, weelCtrl, textCtrl, btnCtrl, rawScroll]);
+  }, [logoCtrl, weelCtrl, textCtrl, btnCtrl, rawScroll, scrollOffset]);
 
   /* ---------------- Lifecycle ---------------- */
 
@@ -115,7 +114,9 @@ const DecentDenLanding = () => {
     window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
 
-    runIntro().catch((e) => console.error("Intro failed:", e));
+    queueMicrotask(() => {
+      runIntro().catch((e) => console.error("Intro failed:", e));
+    });
 
     return () => {
       mounted.current = false;

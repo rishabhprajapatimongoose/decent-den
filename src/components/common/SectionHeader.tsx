@@ -1,28 +1,43 @@
 interface SectionHeaderProps {
   prefix?: string;
+  prefixColor?: string; // Use Hex
+  highlightColor?: string; // Use Hex
   highlight?: string;
-  isDark?: boolean; // for light/dark theme
+  className?: string;
 }
 
 const SectionHeader = ({
   prefix,
+  prefixColor = "#FFFFFF",
+  highlightColor = "#04040E",
   highlight,
-  isDark = false,
+  className = "",
 }: SectionHeaderProps) => {
   return (
     <div
-      className={` text-[64px] font-irish text-wrap space-x-6 mx-auto wrap-break-words items-center uppercase  ${
-        isDark ? "text-[#04040E]" : "text-[#ffffff]"
-      }`}
+      className={`
+        text-[64px] font-irish uppercase leading-tight 
+        flex flex-wrap items-center justify-center 
+        w-full mx-auto 
+        ${className}
+      `}
     >
-      {prefix && <span className="whitespace-nowrap">{prefix}</span>}
+      {prefix && (
+        <span
+          style={{ color: prefixColor }}
+          className="mr-3 md:mr-6" /* Standard margin for spacing */
+        >
+          {prefix}
+        </span>
+      )}
+
       {highlight && (
         <span
-          className={`px-2.5 inline gap-2.5 rounded-[10px] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]  ${
-            isDark
-              ? "bg-[#04040E] text-[#ffffff]"
-              : "bg-[#ffffff] text-[#04040E]"
-          }`}
+          style={{
+            backgroundColor: prefixColor,
+            color: highlightColor,
+          }}
+          className="inline-block px-3 py-1 rounded-[10px] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]"
         >
           {highlight}
         </span>

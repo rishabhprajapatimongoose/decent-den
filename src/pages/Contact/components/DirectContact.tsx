@@ -25,10 +25,7 @@ const ContactCard = () => {
           </svg>
           Email us:-
         </span>
-        <a
-          href="mailto:invest@decentden.com"
-          className="text-white hover:text-blue-400 transition-colors"
-        >
+        <a href="mailto:invest@decentden.com" className="text-white">
           invest@decentden.com
         </a>
       </div>

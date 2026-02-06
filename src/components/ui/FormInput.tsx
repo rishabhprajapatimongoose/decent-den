@@ -13,7 +13,7 @@ const FormInput = ({ label, error, ...props }: InputProps) => {
       <input
         {...props}
         className={`
-          w-full bg-[#15427E24] text-[#ffffff] text-base rounded-lg px-5 py-3.5
+          w-full bg-[#15427E24] text-white text-base rounded-lg px-5 py-3.5
           border-[1.4px] border-[#15427E] outline-none transition-all duration-200
           placeholder:text-[#FFFFFF66] focus:border-blue-300   ${error ? "border-red-500" : ""}
         `}

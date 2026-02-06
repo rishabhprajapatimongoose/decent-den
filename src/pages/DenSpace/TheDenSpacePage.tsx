@@ -3,9 +3,9 @@ import GangCard from "./components/GangCard";
 const PageHeader = () => {
   return (
     <header className="relative z-10 text-[32px] font-irish">
-      <div className="flex items-center gap-2 text-[#ffffff]">
+      <div className="flex items-center gap-2 text-white">
         <span className="uppercase">The</span>
-        <span className="text-[#04040E] bg-[#ffffff] px-1.5 rounded-[10px] flex gap-2.5 uppercase">
+        <span className="text-[#04040E] bg-white px-1.5 rounded-[10px] flex gap-2.5 uppercase">
           Den Space
         </span>
       </div>
