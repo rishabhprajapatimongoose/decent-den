@@ -8,19 +8,17 @@ const OrganizingHands: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen  pt-15 pb-21 flex flex-col items-center overflow-hidden">
-      {/* Header Section */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* The Image Layer */}
         <img
           src="/organizingHandsBg.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
           aria-hidden="true"
         />
-
-        {/* bg overlay */}
         <div className="absolute inset-0 bg-black/85 mix-blend-multiply" />
       </div>
+
+      {/* header */}
       <div className="mb-17 flex gap-6">
         <img src="/organizingHandsLogo.png " className="h-30 2-30  " />
         <SectionHeader prefix="Organizing" highlight="Hands" />
@@ -28,11 +26,9 @@ const OrganizingHands: React.FC = () => {
 
       {/* Accordion Container */}
       <div
-        className="flex w-full max-w-[1400px] h-[600px] px-4 border-r [border-image-source:linear-gradient(180deg,#000001_0%,#59A6F3_32.21%,#59A6F3_68.75%,#010001_100%)]
+        className="flex w-full max-w-[1500px] h-[600px] px-4 border-r [border-image-source:linear-gradient(180deg,#000001_0%,#59A6F3_32.21%,#59A6F3_68.75%,#010001_100%)]
 [border-image-slice:1]"
       >
-        {" "}
-        {/* Removed 'group' here */}
         {images.map((src, index) => (
           <div
             key={index}
