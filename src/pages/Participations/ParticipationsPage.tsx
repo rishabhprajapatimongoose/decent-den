@@ -3,24 +3,7 @@ import SectionHeader from "../../components/common/SectionHeader";
 import PlatformCard, {
   type PlatformCardProps,
 } from "./components/PlatformCard";
-
-const ParticipationsPara = () => {
-  return (
-    <section className="space-y-3">
-      <h2 className="font-inika-bold text-white text-[28px] uppercase  ">
-        Who Participates & Watches
-      </h2>
-      <p className="font-inika text-white ">
-        Decent Den brings together the most engaged and influential voices in
-        the Web3 ecosystem.
-      </p>
-      <ul className="list-disc text-white list-inside font-inika-bold  text-sm space-y-2 leading-[160%] ">
-        <li>Crypto-native users</li>
-        <li>Web3 creators</li>
-      </ul>
-    </section>
-  );
-};
+import ParticipationsPara from "./components/ParticipationsPara";
 
 const ParticipationsPage: React.FC = () => {
   const platforms: PlatformCardProps[] = [
@@ -51,11 +34,11 @@ const ParticipationsPage: React.FC = () => {
       {/* Left Content Column */}
       <main className="w-full lg:w-1/2 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
         <div className="mb-18">
-          <SectionHeader prefix="participations" />
+          <SectionHeader prefix="participations" className="justify-start" />
         </div>
 
         <div className="space-y-12 max-w-2xl">
-          {/* Who Participates Section */}
+          {/* Participates para */}
           <ParticipationsPara />
 
           {/* Platform Grid Section */}
@@ -88,7 +71,7 @@ const ParticipationsPage: React.FC = () => {
 
         {/* butn */}
         <div className="absolute bottom-14.5 left-0 w-full px-16 z-20">
-          <button className="w-full bg-white text-black py-4 rounded-full font-irish text-xl uppercase st hover:bg-gray-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
+          <button className="w-full bg-white text-black py-4 rounded-full font-irish text-xl uppercase st hover:bg-gray-200 transition-colors">
             Click Here To Participate
           </button>
         </div>

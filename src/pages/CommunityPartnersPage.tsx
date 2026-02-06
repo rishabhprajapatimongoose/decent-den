@@ -11,7 +11,7 @@ const PartnerCard = ({ partner }: { partner: Partner; index: number }) => {
   return (
     <div
       className={`flex flex-col items-center justify-center p-8 rounded-xl transition-all duration-300
-        aspect-3/2 w-full max-w-[304px]
+        aspect-3/2 w-full max-w-76
         ${partner.hasBackground ? "bg-[#04040E0A]" : "bg-transparent"}
       `}
     >
@@ -58,10 +58,11 @@ const CommunityPartners = () => {
       <SectionHeader
         prefix="Our Community"
         highlight="Partners"
-        isDark={true}
+        prefixColor="#000000"
+        highlightColor="#ffffff"
       />
 
-      <div className="mt-[88px] grid grid-cols-4 gap-x-5 gap-y-7 max-w-7xl mx-auto pb-36">
+      <div className="mt-22 grid grid-cols-4 gap-x-5 gap-y-7 max-w-7xl mx-auto pb-36">
         {partners.map((partner, index) => (
           <PartnerCard key={partner.id} partner={partner} index={index} />
         ))}

@@ -4,10 +4,9 @@ export interface PlatformCardProps {
   description: string;
 }
 
-// --- Reusable Platform Card ---
 const PlatformCard: React.FC<PlatformCardProps> = ({
   icon,
-  title,  
+  title,
   description,
 }) => (
   <div className="bg-[#50619114] border-[1.6px] min-w-62.5 border-[#506191] rounded-xl p-5 flex flex-col gap-5">
