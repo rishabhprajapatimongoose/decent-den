@@ -78,8 +78,8 @@ const ParticipationsPage: React.FC = () => {
       </main>
 
       {/* Right Image Column */}
-      <aside className="w-auto lg:w-1/2 relative h-auto">
-        <div className="absolute inset-0 z-10 block" />
+      <aside className="w-1/3 relative h-auto">
+        <div className="absolute w-2/3 inset-0 z-10 block" />
         <img
           src="/ParticipationImage.png" // Replace with your asset
           alt="Participations Hero"
